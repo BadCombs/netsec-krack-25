@@ -1,4 +1,6 @@
 *.o
+*.d
+
 opt/openssl-1.0.2l/*
 
 !opt/openssl-1.0.2l/.gitkeep
