@@ -5,6 +5,11 @@ if [ "$(id -u)" -ne 0 ]; then
         exit 1
 fi
 
+# TODO: Check argument
+
+# Reassign eth to root namespace
+ip netns exec hostapd ip link set eth1 netns 1
+
 # Remove Network Namespaces
 ip netns del supplicant
 ip netns del hostapd
