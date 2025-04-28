@@ -1,3 +1,6 @@
 [submodule "krackattacks-scripts"]
 	path = krackattacks-scripts
 	url = https://github.com/vanhoefm/krackattacks-scripts/
+[submodule "krackattack-all-zero-tk-key"]
+	path = krackattack-all-zero-tk-key
+	url = https://github.com/lucascouto/krackattack-all-zero-tk-key
