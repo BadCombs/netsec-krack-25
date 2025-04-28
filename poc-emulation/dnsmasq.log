@@ -7,12 +7,6 @@ dnsmasq: using nameserver 1.1.1.1#53
 dnsmasq: using nameserver 193.205.207.25#53
 dnsmasq: using nameserver 193.205.215.6#53
 dnsmasq: cleared cache
-dnsmasq: reading /etc/resolv.conf
-dnsmasq: using nameserver 1.1.1.1#53
-dnsmasq: using nameserver 193.205.207.25#53
-dnsmasq: using nameserver 193.205.215.6#53
-dnsmasq-dhcp: DHCPDISCOVER(wlan0) 02:00:00:00:01:00 
-dnsmasq-dhcp: DHCPOFFER(wlan0) 192.168.0.82 02:00:00:00:01:00 
 dnsmasq-dhcp: DHCPREQUEST(wlan0) 192.168.0.82 02:00:00:00:01:00 
 dnsmasq-dhcp: DHCPACK(wlan0) 192.168.0.82 02:00:00:00:01:00 kali
 dnsmasq: reading /etc/resolv.conf
@@ -34,3 +28,40 @@ dnsmasq: reading /etc/resolv.conf
 dnsmasq: using nameserver 1.1.1.1#53
 dnsmasq: using nameserver 193.205.207.25#53
 dnsmasq: using nameserver 193.205.215.6#53
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: using nameserver 193.205.207.25#53
+dnsmasq: using nameserver 193.205.215.6#53
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: ignoring nameserver 192.168.0.1 - local interface
+dnsmasq: using nameserver 193.205.207.25#53
+dnsmasq: using nameserver 193.205.215.6#53
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: using nameserver 193.205.207.25#53
+dnsmasq: using nameserver 193.205.215.6#53
+dnsmasq: ignoring nameserver 192.168.0.1 - local interface
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: using nameserver 193.205.207.25#53
+dnsmasq: using nameserver 193.205.215.6#53
+dnsmasq: ignoring nameserver 192.168.0.1 - local interface
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: ignoring nameserver 192.168.0.1 - local interface
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: using nameserver 192.168.1.1#53
+dnsmasq: ignoring nameserver 192.168.0.1 - local interface
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: using nameserver 192.168.1.1#53
+dnsmasq: ignoring nameserver 192.168.0.1 - local interface
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: ignoring nameserver 192.168.0.1 - local interface
+dnsmasq: using nameserver 192.168.1.1#53
+dnsmasq: reading /etc/resolv.conf
+dnsmasq: using nameserver 1.1.1.1#53
+dnsmasq: using nameserver 192.168.1.1#53

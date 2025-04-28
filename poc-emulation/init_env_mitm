@@ -1,0 +1,4 @@
+export PATH=../../opt/openssl-1.1.1k/bin:$PATH
+export LD_LIBRARY_PATH=../../opt/openssl-1.1.1k/lib:$LD_LIBRARY_PATH
+export CPPFLAGS="-I../../opt/openssl-1.1.1k/include"
+export LDFLAGS="-L../../opt/openssl-1.1.1k/lib"

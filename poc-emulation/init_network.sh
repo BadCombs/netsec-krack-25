@@ -5,6 +5,11 @@ if [ "$(id -u)" -ne 0 ]; then
         exit 1
 fi
 
+# TODO: Check argument
+
+
+AP_INTERNET=$1
+
 # Create Radios
 modprobe mac80211_hwsim radios=4
 
@@ -19,6 +24,6 @@ PHY1=$(basename $(readlink -f /sys/class/net/wlan1/phy80211))
 iw phy $PHY0 set netns name hostapd
 iw phy $PHY1 set netns name supplicant
 
-ip link set dev eth1 netns hostapd
+ip link set dev $AP_INTERNET netns hostapd
 
 airmon-ng check kill
