@@ -28,7 +28,7 @@ ldconfig
 ```
 ### Install and Setup Conda
 In repo we use both Python 3.12 and Python 2.7. In order to handle things easily, we decided touse Conda in order to run Python 2.7 in a separate environment. 
-One way to install it is the following (otherwise check the <a href=https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html>website</a>): 
+One way to install it is the following (otherwise check out the <a href=https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html>website</a>): 
 ```bash
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
@@ -67,7 +67,7 @@ conda deactivate
 ```
 
 ## Build
-### Build Krackattak Scripts
+### Build Krackattack Scripts
 ```bash
 cd krackattacks-scripts/krackattack
 ./build.sh
@@ -80,5 +80,12 @@ sudo ./disable-hwcrypto.sh
 ```
 Then **reboot** the system.
 
-### Build wpa_supplicant and hostapd
+### Build the rest
+Run the following scripts (in the same order as below).
+```bash
+./build_openssl.sh
+./build_wifi.sh
+```
+
+## Reference
 TODO
