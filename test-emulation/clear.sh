@@ -7,7 +7,6 @@ fi
 
 # Remove Network Namespaces
 ip netns del supplicant
-ip netns del hostapd
 
 # Remove Radios
 modprobe -r mac80211_hwsim

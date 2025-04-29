@@ -10,12 +10,9 @@ modprobe mac80211_hwsim radios=2
 
 # Create Network Namespaces
 ip netns add supplicant
-ip netns add hostapd
 
 # Associate interfaces to namespaces
-PHY0=$(basename $(readlink -f /sys/class/net/wlan0/phy80211))
 PHY1=$(basename $(readlink -f /sys/class/net/wlan1/phy80211))
 
-iw phy $PHY0 set netns name hostapd
 iw phy $PHY1 set netns name supplicant
 
