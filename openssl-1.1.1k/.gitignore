@@ -22,10 +22,10 @@
 /exporters/OpenSSLConfig*.cmake
 
 # Links under apps
-/apps/CA.pl
-/apps/tsget
-/apps/tsget.pl
-/apps/md4.c
+#/apps/CA.pl
+#/apps/tsget
+#/apps/tsget.pl
+#/apps/md4.c
 
 # Auto generated headers
 /crypto/buildinf.h
