@@ -77,5 +77,5 @@ Open Wireskark and sniff traffic on interface `wlan3` (the Interface of the Roug
 
 ## Deinitialise the Network Emulation
 ```bash
-sudo ./clear.sh
+sudo ./clear.sh eth1
 ```
