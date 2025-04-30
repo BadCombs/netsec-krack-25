@@ -26,44 +26,26 @@ make
 make install
 ldconfig
 ```
-### Install and Setup Conda
-In repo we use both Python 3.12 and Python 2.7. In order to handle things easily, we decided touse Conda in order to run Python 2.7 in a separate environment. 
-One way to install it is the following (otherwise check out the <a href=https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html>website</a>): 
-```bash
-mkdir -p ~/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-rm ~/miniconda3/miniconda.sh
-```
+### Install and Setup Pyenv
+In repo we use both Python 3.12 and Python 2.7. In order to handle things easily, we decided touse pyenv in order to run Python 2.7 in a separate environment. In order to install Pyenv, follow the steps in <a href=https://github.com/pyenv/pyenv>https://github.com/pyenv/pyenv</a>, but **do it as a root**, as we will need to run some scripts with root permissions.
 
-We need to use Conda as root. So, we'll run `sudo su` before proceeding.
-```bash
-USER_HOME=$HOME
-sudo su
-source $USER_HOME/miniconda3/bin/activate
-conda init --all
-```
-NOTE: After installing Conda, when opening a new session, it will automatically activate the `base` environment. In order to disable this behaviour, just run:
-```bash
-conda config --set auto_activate_base false
-```
 
 Now let's create a new environment containing Python 2.7.
 ```bash
 sudo su
-conda create -n krack-poc python=2.7
-conda activate krack-poc
+pyenv install 2.7.18
 ```
 
 Eventually, we'll install some additional dependencies inside the newly created environment:
 ```bash
+pyenv shell 2.7.18
 pip install scapy==2.3.3 pycryptodome
 pip install --user mitm_channel_based
 ```
 
-In order to proceed, exit from the environment:
+In order to proceed, switch to the system version:
 ```bash
-conda deactivate
+pyenv shell system
 ```
 
 ## Build

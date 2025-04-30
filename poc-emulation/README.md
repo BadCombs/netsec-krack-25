@@ -54,7 +54,7 @@ sudo su
 rfkill unblock wifi
 source ../../poc-emulation/init_env_mitm
 ../../poc-emulation/enable_internet_forwarding.sh eth0 wlan3
-conda activate krack-poc
+pyenv shell 2.7.18
 ```
 
 ### Obtain MitM position and Reinstall Key
