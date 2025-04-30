@@ -65,9 +65,10 @@ Then **reboot** the system.
 ### Build the rest
 Run the following scripts (in the same order as below).
 ```bash
-build_openssl-1.0.2l.sh
-build_openssl-1.1.1k.sh
+build_openssl.sh
 ./build_wifi.sh
 ```
 ## Reference
-TODO
+<a href=https://www.krackattacks.com/>KRACK Official Website</a>
+<a href=https://github.com/vanhoefm/krackattacks-scripts/tree/research/krackattack>Krack Scripts</a>
+<a href=https://github.com/lucascouto/krackattack-all-zero-tk-key>Revisited KRACK POC</a>

@@ -35,8 +35,8 @@ source init_env_sup_ap
 ip netns exec supplicant ./wpa_supplicant-2.4 -D nl80211 -i wlan1 -c supplicant.conf
 ```
 
-Open a new Terminal session in this folder and run:
 ### Test connection
+Open a new Terminal session in this folder and run:
 ```bash
 sudo ip netns exec hostapd ping krackattacks.com
 sudo ip netns exec supplicant dhcpcd -n wlan1
@@ -58,12 +58,12 @@ pyenv shell 2.7.18
 ```
 
 ### Obtain MitM position and Reinstall Key
-On the same session, while root, execute:
+In the same session, while root, execute:
 ```bash
 python ./krack_all_zero_tk.py wlan2 wlan3 eth0 "simulnet" -t <victim_mac_addr>
 ```
 ### Test connection
-In a new window run some tests:
+In a new session run some tests:
 ```bash
 ping krackattacks.com
 sudo ip netns exec supplicant ping krackattacks.com
@@ -75,7 +75,7 @@ Open Wireskark and sniff traffic on interface `wlan3` (the Interface of the Roug
 ### Check with patched `wpa_supplicant`
 
 
-## Deinitialise the Network Emulation
+## De-initialise the Network Emulation
 ```bash
 sudo ./clear.sh eth1
 ```

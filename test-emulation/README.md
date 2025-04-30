@@ -9,7 +9,7 @@ sudo ./init_network.sh
 
 ## Connection and Testing
 ### Start the Test
-Open a new Terminal session in `../krackattacks-scripts/krackattack/'. Run:
+Open a new Terminal session in `../krackattacks-scripts/krackattack/`. Run:
 
 ```bash
 sudo su
@@ -40,12 +40,12 @@ ip netns exec supplicant ./wpa_supplicant-2.4 -D nl80211 -i wlan1 -c supplicant_
 ```
 
 ### NOTE!
-When restarting the Test script remove the created Virtual Interface. For example, if its name is `monwlan0`, the execute:
+When restarting the Test script remove the created Virtual Interface. For example, if its name is `monwlan0`, then execute:
 ```bash
 sudo iw dev monwlan0 del
 ```
 
-## Deinitialise the Network Emulation
+## De-initialise the Network Emulation
 ```bash
 sudo ./clear.sh
 ```
