@@ -65,7 +65,7 @@ Then **reboot** the system.
 ### Build the rest
 Run the following scripts (in the same order as below).
 ```bash
-build_openssl.sh
+./build_openssl.sh
 ./build_wifi.sh
 ```
 ## Reference
