@@ -7,24 +7,11 @@
 # 2. The Client (client.py)
 # 3. The MITM Attacker (mitm.py)
 
-VENV_DIR="./venv"
-VENV_PYTHON="$VENV_DIR/bin/python"
-
 # Configuration
 SERVER_TERM_TITLE="Authenticator Access Point"
 CLIENT_TERM_TITLE="Supplicant Wifi Client"
 ATTACKER_TERM_TITLE="MITM Attacker"
 TERMINAL="xterm" 
-
-if [ -d "$VENV_DIR" ]; then
-  echo "Activating virtual environment in $VENV_DIR..."
-  # shellcheck disable=SC1091
-  source "$VENV_DIR/bin/activate"
-else
-  echo "ERROR: Virtual environment not found at $VENV_DIR."
-  echo "Please create it with: python3 -m venv $VENV_DIR"
-  exit 1
-fi
 
 clear
 

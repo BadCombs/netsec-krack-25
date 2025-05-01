@@ -86,11 +86,12 @@ class WiFiClient:
         msg3_retx = EAPOLMessage.deserialize(data)
         logging.info(f"Received retransmitted Msg3: {msg3_retx}")
         # Simulate reinstallation
-        print(Colors.RED, f"Re-installed SAME PTK!", Colors.END) #logging.info
+        print(Colors.RED, f"Re-installed SAME PTK!", Colors.END)
+        print(Colors.CYAN, f"===HANDSHAKE FINISHED===", Colors.END)
 
     def run(self) -> None:
         clear_screen()
-        print(Colors.GREEN, print_splash_screen("CLIENT"), Colors.END)
+        print(Colors.GREEN, SUPPLICANT_SLPASH_SCREEN, Colors.END)
         setup_logging()
         
         if not self.connect_to_mitm():

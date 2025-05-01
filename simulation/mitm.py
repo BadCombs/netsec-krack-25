@@ -78,7 +78,7 @@ class MITMAttacker:
           
     def run(self):
         clear_screen()
-        print(Colors.RED, print_splash_screen("MITM"), Colors.END)
+        print(Colors.RED, MITM_SPLASH_SCREEN, Colors.END)
         setup_logging()
         
         if not self.start():

@@ -87,7 +87,7 @@ class WiFiAP:
 
     def retransmit_msg3(self, conn):
         """Retransmit same Message 3"""
-        log_phase(3, "Retransmitting Msg3")
+        log_phase(2, "Retransmitting Msg3")
 
         msg = EAPOLMessage(
             replay_counter=self.replay_counter + 1,  # reuse original
@@ -98,7 +98,7 @@ class WiFiAP:
            
     def run(self):
         clear_screen()
-        print(Colors.YELLOW, print_splash_screen("AP"), Colors.END)
+        print(Colors.YELLOW, AUTHENTICATOR_SPLASH_SCREEN, Colors.END)
         setup_logging()
         self.start()
         
@@ -111,7 +111,7 @@ class WiFiAP:
             if not success:
                 # Timed out, resend msg3
                 self.retransmit_msg3(conn)
-                logging.info("=== HANDSHAKE COMPLETE ===")
+                print(Colors.CYAN, f"===HANDSHAKE FINISHED===", Colors.END)
         finally:
             conn.close()
             input("\nPress Enter to exit...")
