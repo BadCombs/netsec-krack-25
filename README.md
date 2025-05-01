@@ -11,7 +11,7 @@ sudo apt-get install linux-headers-$(uname -r)
 sudo apt update
 sudo apt install build-essential checkinstall zlib1g-dev libnl-3-dev\
     libnl-genl-3-dev pkg-config libssl-dev net-tools git sysfsutils\
-    python3-venv iw 
+    python3-venv iw dnsmasq dhcpcd iptables
 ```
 ### Install Aircrack-ng
 If `aircrack-ng` is not already installed into your machine (note that you'll also need `airmon-ng`) then you can build from source, here or anywhere you prefer in your machine:
