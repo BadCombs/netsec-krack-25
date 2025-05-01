@@ -6,7 +6,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # Check argument
-if [ '$#' -ne 1 ]; then
+if [ "$#" -ne 1 ]; then
     echo "Usage: sudo ./$0 <Internet Interface for Hostapd>"
 fi
 
