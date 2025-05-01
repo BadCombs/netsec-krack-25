@@ -5,7 +5,10 @@ if [ "$(id -u)" -ne 0 ]; then
         exit 1
 fi
 
-# TODO: Check argument
+# Check argument
+if [ '$#' -ne 1 ]; then
+    echo "Usage: sudo ./$0 <Internet Interface for Hostapd>"
+fi
 
 
 AP_INTERNET=$1

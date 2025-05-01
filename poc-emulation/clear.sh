@@ -5,10 +5,13 @@ if [ "$(id -u)" -ne 0 ]; then
         exit 1
 fi
 
-# TODO: Check argument
+# Check argument
+if [ '$#' -ne 1 ]; then
+    echo "Usage: sudo ./$0 <Internet Interface for Hostapd>"
+fi
 
 # Reassign eth to root namespace
-ip netns exec hostapd ip link set eth1 netns 1
+ip netns exec hostapd ip link set $1 netns 1
 
 # Remove Network Namespaces
 ip netns del supplicant
