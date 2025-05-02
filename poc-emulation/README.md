@@ -1,5 +1,12 @@
 # Proof Of Concept (Emulation with mac80211_hwsim)
 
+## Assumptions
+In this tutorial we assume that the machine is connected to the Internet via 2 interfaces, that here we call `eth0` and `eth1`. Furthermore, we also assume that, after loading the module `man80211_hwsim` with `N` radios, their respective virtual interfaces will be named `wlan0, wlan1, ..., wlan(N-1)` by the system.
+
+We tested the simulation in a **Virtual Machine running Kali Linux, with two Network Adapters between it and the Host Machine using NAT**. 
+
+NOTE: We had hard times trying the attack on other Distros.
+
 ## Initialise the Network Emulation
 
 First, make sure that both interfaces `eth0` and `eth1` are available.
