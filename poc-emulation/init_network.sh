@@ -8,6 +8,7 @@ fi
 # Check argument
 if [ "$#" -ne 1 ]; then
     echo "Usage: sudo ./$0 <Internet Interface for Hostapd>"
+    exit 1
 fi
 
 
