@@ -42,7 +42,7 @@ class WiFiClient:
     def create_msg4(self) -> bytes:
         """Create Message 4 of 4-way handshake"""
         return EAPOLMessage(
-            replay_counter=self.replay_counter + 1,
+            replay_counter=self.replay_counter + 2,
         ).serialize()
 
     def run_handshake(self) -> bool:
@@ -87,7 +87,10 @@ class WiFiClient:
         logging.info(f"Received retransmitted Msg3: {msg3_retx}")
         # Simulate reinstallation
         print(Colors.RED, f"Re-installed SAME PTK!", Colors.END)
-        print(Colors.CYAN, f"===HANDSHAKE FINISHED===", Colors.END)
+        step_prompt("send Msg4 (retransmit)")
+        msg4 = self.create_msg4()
+        self.socket.send(msg4)
+        logging.info(f"Sent Msg4 (retransmit): {EAPOLMessage.deserialize(msg4)}")
 
     def run(self) -> None:
         clear_screen()
@@ -102,6 +105,7 @@ class WiFiClient:
             initial = self.run_handshake()
             if initial:
                 self.reinstall_keys()
+                print(Colors.CYAN, f"===HANDSHAKE FINISHED===", Colors.END)
         finally:
             self.socket.close()
             input("\nPress Enter to exit...")

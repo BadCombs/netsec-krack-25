@@ -20,7 +20,7 @@ class MITMAttacker:
         self.client_conn = None
         self.server_conn = None
         self.ptk = None
-        #self.pmk = PMK
+        self.msg4_blocked = False
 
     def start(self):
         # Set up client listener
@@ -66,16 +66,30 @@ class MITMAttacker:
         self.forward_eapol(self.server_conn, self.client_conn, "Msg3")
         
         # Block Msg4
-        log_phase(2, "Blocking Msg4")
-        step_prompt("block Msg4")
+        log_phase(2, "Handling Msg4")
+        step_prompt("receive Msg4 from client")
         data = self.client_conn.recv(BUFF_SIZE)
-        logging.warning(f"Blocked Msg4: {EAPOLMessage.deserialize(data)}")
+        msg4 = EAPOLMessage.deserialize(data)
+        if not self.msg4_blocked:
+            logging.warning(f"Blocked Msg4: {msg4}")
+            self.msg4_blocked = True
+        else:
+            logging.info(f"Forwarding Msg4: {msg4}")
+            self.server_conn.send(data)
+            return  # Handshake flow complete
         
         # Retransmit Msg3
         log_phase(3, "Forwarding Retransmitted Msg3")
         step_prompt("forward retransmitted Msg3")
         self.forward_eapol(self.server_conn, self.client_conn, "Msg3 retransmit")
-          
+        # After retransmit, expect client to send Msg4 again
+        log_phase(4, "Forwarding Msg4 after retransmit")
+        step_prompt("receive Msg4 from client")
+        data2 = self.client_conn.recv(BUFF_SIZE)
+        msg4_retx = EAPOLMessage.deserialize(data2)
+        logging.info(f"Forwarding Msg4: {msg4_retx}")
+        self.server_conn.send(data2)
+
     def run(self):
         clear_screen()
         print(Colors.RED, MITM_SPLASH_SCREEN, Colors.END)

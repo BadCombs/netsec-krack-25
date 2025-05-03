@@ -36,7 +36,6 @@ class WiFiAP:
             self.snonce # raw 32-byte
         )
         logging.info(f"Calculating PTK...")
-        logging.info(f"Installed PTK: {self.ptk['full'].hex()}")
 
     def create_msg3(self):
         """Create Message 3 of 4-way handshake"""
@@ -45,6 +44,10 @@ class WiFiAP:
         )
 
         return msg.serialize()
+
+    def process_msg4(self, eapol_msg) -> None:
+        """Process Message 4 of 4-way handshake"""
+        logging.info(f"Installed PTK: {self.ptk['full'].hex()}")
 
     def run_handshake(self, conn) -> bool:
         log_phase(1, "Initial 4-way Handshake")
@@ -90,7 +93,7 @@ class WiFiAP:
         log_phase(2, "Retransmitting Msg3")
 
         msg = EAPOLMessage(
-            replay_counter=self.replay_counter + 1,  # reuse original
+            replay_counter=self.replay_counter + 2,
         ).serialize()
 
         conn.send(msg)
@@ -111,6 +114,15 @@ class WiFiAP:
             if not success:
                 # Timed out, resend msg3
                 self.retransmit_msg3(conn)
+                conn.settimeout(None)
+                try:
+                    data = conn.recv(BUFF_SIZE)
+                except Exception as e:
+                    logging.error(f"Error receiving Msg4 after retransmit: {e}")
+                    return
+                msg4 = EAPOLMessage.deserialize(data)
+                logging.info(f"Received Msg4: {msg4}")
+                self.process_msg4(conn)
                 print(Colors.CYAN, f"===HANDSHAKE FINISHED===", Colors.END)
         finally:
             conn.close()
