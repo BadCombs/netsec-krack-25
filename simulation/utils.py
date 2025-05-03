@@ -2,7 +2,7 @@ import os
 import logging
 import socket
 from time import sleep
-from const import Colors
+from const import *
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
